@@ -12,6 +12,6 @@ await client.connect();
 
 console.log(`Listening on port:${APP_PORT}...`);
 
-await app.listen(`${APP_HOST}:${APP_PORT}`);
+await app.listen({port: APP_PORT});
 
 await client.end();

@@ -1,21 +1,21 @@
 import surveyRepo from "../repositories/surveyRepo.js";
 
-// export const geSurveys = async () => {
-//   const surveys = await surveyRepo.selectAll();
+export const geSurveys = async () => {
+  const surveys = await surveyRepo.selectAll();
 
-//   var result = new Array();
+  var result = new Array();
 
-//   surveys.rows.map((survey) => {
-//     var obj = new Object();
+  surveys.rows.map((survey) => {
+    var obj = new Object();
 
-//     surveys.rowDescription.columns.map((el, i) => {
-//       obj[el.name] = survey[i];
-//     });
-//     result.push(obj);
-//   });
+    surveys.rowDescription.columns.map((el, i) => {
+      obj[el.name] = survey[i];
+    });
+    result.push(obj);
+  });
 
-//   return result;
-// };
+  return result;
+};
 
 export const getSurvey = async (surveyId) => {
   const surveys = await surveyRepo.selectById(surveyId);
