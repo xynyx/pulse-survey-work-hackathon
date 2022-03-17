@@ -9,7 +9,10 @@
 
 2. Create the tables by copy-pasting or running the contents of the db/create.sql file
 
-3. Run the server with `deno run --no-check --allow-net --allow-env index.js`
+3. Install Deno: `curl -fsSL https://deno.land/x/install/install.sh | sh -s v1.9.2`
+    1. Check if correctly installed with `deno --version`
+
+4. Run the server with `deno run --no-check --allow-net --allow-env index.js`
 
 
 ## Endpoints
