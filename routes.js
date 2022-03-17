@@ -3,6 +3,7 @@ import getSurvey from "./controllers/getSurvey.js";
 import createSurvey from "./controllers/createSurvey.js";
 import getQuestions from "./controllers/getQuestions.js";
 import surveyCompleted from "./controllers/surveyCompleted.js";
+import getSurveyCompletion from "./controllers/getSurveyCompletion.js";
 import getSurveys from "./controllers/getSurveys.js";
 import createAnswers from "./controllers/createAnswers.js";
 
@@ -14,5 +15,6 @@ router.post("/survey", createSurvey);
 router.get("/questions/:id", getQuestions);
 router.post("/answers", createAnswers);
 router.put("/completion", surveyCompleted);
+router.get("/completion/:surveyId/:userId", getSurveyCompletion);
 
 export default router;
