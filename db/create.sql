@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS CompletedSurveys (
     id SERIAL PRIMARY KEY,
     userId INT NOT NULL,
     surveyId INT NOT NULL,
-    isComplete BOOLEAN NOT NULL
+    isComplete BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS Question (
