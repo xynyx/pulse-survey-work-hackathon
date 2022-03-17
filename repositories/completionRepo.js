@@ -3,15 +3,19 @@ import client from "../db/database.js";
 class CompletionRepo {
   create(CompletedSurveys) {
     return client.queryObject(
-      "INSERT INTO CompletedSurveys (userId, surveyId) VALUES ($1, $2);",
-      CompletedSurveys.userId,
-      CompletedSurveys.surveyId,
+        "INSERT INTO CompletedSurveys (userId, surveyId) VALUES ($1, $2);",
+        CompletedSurveys.userId,
+        CompletedSurveys.surveyId,
     );
   }
 
-//   selectBySurveyId(id) {
-//     return client.queryArray("SELECT * FROM Question WHERE surveyId = $1 ORDER BY id;", id);
-//   }
+  update(CompletedSurveys) {
+    return client.queryArray(
+        "UPDATE CompletedSurveys SET isComplete = 'true' WHERE userId = $1 AND surveyId = $2",
+        CompletedSurveys.userId,
+        CompletedSurveys.surveyId,
+    )
+  }
 }
 
 export default new CompletionRepo();

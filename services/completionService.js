@@ -8,4 +8,7 @@ export const createCompletionData = async (userId, surveyId) => {
   
     await completionRepo.create(newCompletionData);
   };
-  
+
+export const updateCompletionData = async (userId, surveyId) => {
+    await completionRepo.update({ userId, surveyId });
+}
