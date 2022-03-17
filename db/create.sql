@@ -20,5 +20,6 @@ CREATE TABLE IF NOT EXISTS Question (
 CREATE TABLE IF NOT EXISTS Answer (
     id SERIAL PRIMARY KEY,
     questionId INT NOT NULL,
+    answer INT NOT NULL,
     type VARCHAR(50) DEFAULT '5-scale'
 );

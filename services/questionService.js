@@ -1,8 +1,6 @@
 import questionRepo from "../repositories/questionRepo.js";
 
 export const createQuestions = async (questions, surveyId) => {
-  console.log('questions', questions)
-  console.log('surveyId', surveyId)
   questions.forEach(async (question) => {
     const newQuestion = {
       surveyId: Number(surveyId),
@@ -14,9 +12,7 @@ export const createQuestions = async (questions, surveyId) => {
 };
 
 export const getQuestions = async (surveyId) => {
-  console.log('surveyId', surveyId)
   const questions = await questionRepo.selectBySurveyId(surveyId);
-  console.log('questions', questions)
 
   var result = new Array();
 

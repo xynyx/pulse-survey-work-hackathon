@@ -40,7 +40,5 @@ export const createSurvey = async (surveyData) => {
 
   const createdSurvey = await surveyRepo.create(newSurvey);
 
-  console.log('createdSurvey', createdSurvey.rows[0].id)
-
   return createdSurvey.rows[0].id;
 };
