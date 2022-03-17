@@ -20,15 +20,13 @@ export const getSurveys = async () => {
 
 export const getSurvey = async (surveyId) => {
   const surveys = await surveyRepo.selectById(surveyId);
-  // const questions = await questionRepo.selectBySurveyId(surveyId);
-
-  // console.log('questions', await questions);
+  const questions = await questionRepo.selectBySurveyId(surveyId);
 
   var result = new Object();
 
   surveys.rows.map((survey) => {
     result = survey;
-    // result.questions = questions;
+    result.questions = questions.rows.map((question) => ({id: question[0], question: question[2], }));
   });
 
   return result;
