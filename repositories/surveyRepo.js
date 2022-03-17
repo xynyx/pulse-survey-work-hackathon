@@ -3,7 +3,7 @@ import client from "../db/database.js";
 class SurveyRepo {
   create(Surveys) {
     return client.queryObject(
-      "INSERT INTO Surveys (name, accountId) VALUES ($1, $2);",
+      "INSERT INTO Surveys (name, accountId) VALUES ($1, $2) RETURNING id",
       Surveys.name,
       Surveys.accountId,
     );

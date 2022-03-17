@@ -1,4 +1,5 @@
 import { createSurvey } from "../services/surveyService.js";
+import { createQuestions } from "../services/questionService.js";
 
 export default async ({ request, response }) => {
 //   if (!request.hasBody) {
@@ -7,11 +8,10 @@ export default async ({ request, response }) => {
 //     return;
 //   }
 
-  const { name, accountId } = await request.body().value;
+  const { name, accountId, questions } = await request.body().value;
 
   console.log(await request.body({ type: "json" }).value);
-  console.log(name);
-
+  
   if (!name || !accountId) {
     response.status = 422;
     response.body = { msg: "Incorrect survey data. Name and accountId are required" };
@@ -19,6 +19,8 @@ export default async ({ request, response }) => {
   }
 
   const surveyId = await createSurvey({ name, accountId });
+
+  await createQuestions(questions, surveyId);
 
   response.body = { msg: "Survey created", surveyId };
 };
