@@ -80,8 +80,10 @@
     - 
     ``` 
     [
+       { 
         "x": Number,
         "y": Number,
+       }
     ]
     ``` 
 - Note:
