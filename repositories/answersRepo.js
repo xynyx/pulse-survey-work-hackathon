@@ -9,9 +9,12 @@ class AnswersRepo {
     );
   }
 
-//   selectBySurveyId(id) {
-//     return client.queryArray("SELECT * FROM Question WHERE surveyId = $1 ORDER BY id;", id);
-//   }
+  aggregate(questionId) {
+      return client.queryArray(
+          "SELECT answer AS x, COUNT(answer) AS y FROM Answer WHERE questionId = $1 GROUP BY answer.answer",
+          questionId,
+      )
+  }
 }
 
 export default new AnswersRepo();

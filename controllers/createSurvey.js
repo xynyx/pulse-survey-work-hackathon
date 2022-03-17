@@ -9,11 +9,11 @@ export default async ({ request, response }) => {
 //     return;
 //   }
 
-  const { name, accountId, questions, userId } = await request.body().value;
+  const { name, accountId, questions, userIds } = await request.body().value;
 
   console.log(await request.body({ type: "json" }).value);
   
-  if (!name || !accountId || !userId) {
+  if (!name || !accountId || userIds.length === 0) {
     response.status = 422;
     response.body = { msg: "Incorrect survey data. Name, accountId and userId are required" };
     return;
@@ -22,7 +22,8 @@ export default async ({ request, response }) => {
   const surveyId = await createSurvey({ name, accountId });
 
   await createQuestions(questions, surveyId);
-  await createCompletionData(userId, surveyId);
+
+  userIds.forEach(async (userId) => await createCompletionData(userId, surveyId));
 
   response.body = { msg: "Survey created", surveyId };
 };

@@ -21,7 +21,3 @@ export default async ({ params, response }) => {
 
   response.body = completionData;
 };
-
-// get anmswers with questions
-
-// total completion for a specific survey
