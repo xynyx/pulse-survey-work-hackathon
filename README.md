@@ -38,7 +38,6 @@
     - Will automatically create completion entry with value of `false`
 
 <br />
-<br />
 
 ### GET Survey - `/survey/:surveyId`
 - Response: 
@@ -51,7 +50,6 @@
         "questions": Object[] - { "id": Number, "question": String },
     }
     ```
-<br />
 <br /> 
     
 ### POST Answers - `/answers`
@@ -68,7 +66,6 @@
     - Will set completion entry for this surveyId/userId combination to `true`
 
 <br />
-<br />
 
 ### GET Completion - `/completion/:surveyId/:userId`
 - Response: 
@@ -76,7 +73,6 @@
     ``` 
     Boolean
     ``` 
-<br />
 <br />
     
 ### GET Answer Aggregate - `/answers/:questionId`
