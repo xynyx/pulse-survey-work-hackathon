@@ -18,12 +18,18 @@ class CompletionRepo {
   }
 
   selectByUserId(CompletedSurveys) {
-      console.log('CompletedSurveys', CompletedSurveys)
       return client.queryObject(
           "SELECT * FROM CompletedSurveys WHERE userId = $1 AND surveyId = $2;",
           CompletedSurveys.userId,
           CompletedSurveys.surveyId,
       )
+  }
+
+  totalCompletion(surveyId) {
+    return client.queryArray(
+        "SELECT COUNT(*) as Total, SUM(CompletedSurveys.isComplete::int) AS Complete FROM CompletedSurveys WHERE surveyId = $1",
+        surveyId,
+    )
   }
 }
 

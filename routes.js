@@ -7,6 +7,7 @@ import getSurveyCompletion from "./controllers/getSurveyCompletion.js";
 import getSurveys from "./controllers/getSurveys.js";
 import createAnswers from "./controllers/createAnswers.js";
 import getAnswerAggregate from "./controllers/getAnswerAggregate.js";
+import getTotalCompletion from "./controllers/getCompletedSurveys.js";
 
 const router = new Router();
 
@@ -18,5 +19,6 @@ router.post("/answers", createAnswers);
 router.put("/completion", surveyCompleted);
 router.get("/completion/:surveyId/:userId", getSurveyCompletion);
 router.get("/answers/:id", getAnswerAggregate)
+router.get("/completion/:id", getTotalCompletion);
 
 export default router;

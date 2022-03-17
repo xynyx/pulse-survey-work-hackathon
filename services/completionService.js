@@ -24,3 +24,17 @@ export const getCompletionData = async (userId, surveyId) => {
 
     return result;
 }
+
+export const getTotalCompletion = async (surveyId) => {
+    const totalCompletion = await completionRepo.totalCompletion(surveyId);
+
+    var result = new Object();
+
+    totalCompletion.rows.map((completion) => {
+      totalCompletion.rowDescription.columns.map((el, i) => {
+        result[el.name] = Number(completion[i]);
+      });
+    });
+
+    return result;
+}
