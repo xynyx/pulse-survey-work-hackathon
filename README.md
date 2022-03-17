@@ -93,4 +93,16 @@
     - "x" = answer
     - "y" = count
     
+<br />
+    
+### GET Total Completion - `/completion/:surveyId`
+- Response: 
+    - 
+    ``` 
+    {
+        "total": Number,
+        "complete": Number,
+    }
+    ``` 
+
     
