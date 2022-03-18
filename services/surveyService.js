@@ -4,10 +4,10 @@ import questionRepo from "../repositories/questionRepo.js";
 export const getSurveys = async () => {
   const surveys = await surveyRepo.selectAll();
 
-  var result = new Array();
+  const result = new Array();
 
   surveys.rows.map((survey) => {
-    var obj = new Object();
+    const obj = new Object();
 
     surveys.rowDescription.columns.map((el, i) => {
       obj[el.name] = survey[i];
@@ -22,7 +22,7 @@ export const getSurvey = async (surveyId) => {
   const surveys = await surveyRepo.selectById(surveyId);
   const questions = await questionRepo.selectBySurveyId(surveyId);
 
-  var result = new Object();
+  let result = new Object();
 
   surveys.rows.map((survey) => {
     result = survey;

@@ -16,7 +16,7 @@ export const updateCompletionData = async (userId, surveyId) => {
 export const getCompletionData = async (userId, surveyId) => {
     const completionData = await completionRepo.selectByUserId({ userId, surveyId });
 
-    var result = new Object();
+    let result = new Object();
 
     completionData.rows.map((survey) => {
       result = survey.iscomplete;
@@ -28,7 +28,7 @@ export const getCompletionData = async (userId, surveyId) => {
 export const getTotalCompletion = async (surveyId) => {
     const totalCompletion = await completionRepo.totalCompletion(surveyId);
 
-    var result = new Object();
+    let result = new Object();
 
     totalCompletion.rows.map((completion) => {
       totalCompletion.rowDescription.columns.map((el, i) => {
