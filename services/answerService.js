@@ -14,10 +14,10 @@ export const createAnswers = async (answers) => {
 export const getAnswerAggregate = async (questionId) => {
     const answerAggregate = await answersRepo.aggregate(questionId);
 
-    var result = new Array();
+    const result = new Array();
 
     answerAggregate.rows.map((answer) => {
-      var obj = new Object();
+      const obj = new Object();
   
       answerAggregate.rowDescription.columns.map((el, i) => {
         obj[el.name] = Number(answer[i]);

@@ -14,10 +14,10 @@ export const createQuestions = async (questions, surveyId) => {
 export const getQuestions = async (surveyId) => {
   const questions = await questionRepo.selectBySurveyId(surveyId);
 
-  var result = new Array();
+  const result = new Array();
 
   questions.rows.map((question) => {
-    var obj = new Object();
+    const obj = new Object();
 
     questions.rowDescription.columns.map((el, i) => {
       obj[el.name] = question[i];
