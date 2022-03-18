@@ -11,6 +11,11 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(errorHandler);
 app.use(_404);
+app.use(
+    oakCors({
+      origin: "*"
+    }),
+  );
 
 await client.connect();
 
