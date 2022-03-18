@@ -26,7 +26,7 @@ export const getSurvey = async (surveyId) => {
 
   surveys.rows.map((survey) => {
     result = survey;
-    result.questions = questions.rows.map((question) => ({id: question[0], question: question[2], }));
+    result.questions = questions.rows.map((question) => ({ id: question[0], question: question[2] }));
   });
 
   return result;
